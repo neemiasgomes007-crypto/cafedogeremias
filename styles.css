@@ -1,10 +1,9 @@
 /* Definições Globais e Variáveis */
 :root {
-    --cor-fundo-base: #f7f3ee; /* Bege muito claro */
+    --cor-fundo-base: #f7f3ee; 
     --cor-texto-principal: #333;
-    --cor-destaque-cafe: #583a2c; /* Marrom padrão do Espresso */
+    --cor-destaque-cafe: #583a2c; 
     --cor-botao: #583a2c; 
-    /* Sombra mais suave para um visual premium */
     --sombra-elegante: 0 5px 15px rgba(0, 0, 0, 0.08); 
 }
 
@@ -24,20 +23,65 @@ body {
     color: var(--cor-texto-principal);
     min-height: 100vh;
     overflow-x: hidden;
-    padding: 30px 0; /* Remove padding lateral do body, centraliza com o container */
+    padding: 30px 0;
+    /* CORREÇÃO CRÍTICA: Opacidade e transição removidas para evitar tela branca */
 }
 
-/* NOVO: Estilo para o Container Centralizado */
+/* Tela de Loading (Splash Screen) */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo-base); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fique acima de tudo */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+/* Classe que será adicionada pelo JS para esconder a tela de splash */
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em; 
+    font-weight: 900;
+    color: var(--cor-destaque-cafe);
+    letter-spacing: 5px; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    opacity: 0; 
+    animation: fadeInScale 2s ease-out forwards; 
+    animation-delay: 0.5s; 
+}
+
+/* Animação para a Logo de Splash */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
 .container {
     max-width: 1300px; 
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 50px; /* Adiciona padding interno */
+    margin: 0 auto; 
+    padding: 0 50px; 
     position: relative;
     z-index: 10;
 }
 
 
-/* Fundo Destaque (Círculo de Cor JS) */
 .fundo-destaque {
     background-color: var(--cor-destaque-cafe); 
     width: 100%;
@@ -50,7 +94,6 @@ body {
     transition: background-color 0.8s ease-in-out;
 }
 
-/* Header/Navegação */
 header {
     display: flex;
     justify-content: space-between;
@@ -62,10 +105,10 @@ header {
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
-    font-weight: 900; /* Mais impacto visual */
+    font-weight: 900; 
     color: var(--cor-destaque-cafe); 
-    letter-spacing: 2px; /* Espaçamento sutil para elegância */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    letter-spacing: 2px; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
     transition: color 0.8s ease-in-out;
 }
 
@@ -81,7 +124,6 @@ header {
     color: var(--cor-destaque-cafe);
 }
 
-/* Conteúdo Principal */
 .caixa-conteudo {
     display: flex;
     align-items: center;
@@ -95,11 +137,11 @@ header {
 
 h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 4em; /* Ligeiramente maior */
+    font-size: 4em; 
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 25px;
-    letter-spacing: -0.5px; /* Ajuste para títulos grandes */
+    letter-spacing: -0.5px; 
 }
 
 .nome-cafe-destaque {
@@ -111,7 +153,7 @@ h2 {
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 35px;
-    color: #555; /* Texto mais suave */
+    color: #555; 
     font-weight: 400;
 }
 
@@ -119,19 +161,19 @@ h2 {
     background-color: var(--cor-botao);
     color: white;
     border: none;
-    padding: 14px 40px; /* Mais preenchimento */
+    padding: 14px 40px; 
     font-size: 1.1em;
     font-weight: 500;
-    border-radius: 8px; /* Cantos mais arredondados */
+    border-radius: 8px; 
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-    box-shadow: var(--sombra-elegante); /* Sombra profissional */
+    box-shadow: var(--sombra-elegante); 
     text-transform: uppercase;
 }
 
 .botao-comprar:hover {
     filter: brightness(1.1);
-    transform: translateY(-4px); /* Efeito 3D sutil */
+    transform: translateY(-4px); 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -143,29 +185,27 @@ h2 {
 
 .valor-cafe {
     font-weight: 700;
-    font-size: 1.6em; /* Preço em destaque */
+    font-size: 1.6em; 
     color: var(--cor-destaque-cafe);
     transition: color 0.8s ease-in-out;
 }
 
-/* Imagem Principal */
 .caixa-imagem {
     max-width: 450px;
     margin-top: -50px; 
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15)); /* Sombra na imagem */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15)); 
 }
 
 .imagem-cafe {
     width: 100%;
     height: auto;
     animation: balancoSuave 6s ease-in-out infinite;
-    transition: transform 0.8s ease-in-out; /* Transição na troca de imagem */
+    transition: transform 0.8s ease-in-out; 
 }
 
-/* Menu de Opções (Miniaturas) - AGORA UM "CARTÃO" FLUTUANTE */
 .menu-opcoes {
-    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
-    backdrop-filter: blur(5px); /* Efeito de vidro desfocado */
+    background-color: rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(5px); 
     border-radius: 15px;
     box-shadow: var(--sombra-elegante);
     
@@ -174,7 +214,7 @@ h2 {
     gap: 40px;
     padding: 20px 40px;
     margin: 40px auto 0;
-    width: fit-content; /* Se ajusta ao conteúdo */
+    width: fit-content; 
     max-width: 90%;
     position: relative;
     z-index: 20;
@@ -196,7 +236,7 @@ h2 {
 }
 
 .opcao-item.ativo {
-    background-color: rgba(0, 0, 0, 0.08); /* Mais escuro quando ativo */
+    background-color: rgba(0, 0, 0, 0.08); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: translateY(-8px);
 }
@@ -212,7 +252,6 @@ h2 {
     font-weight: 500;
     font-size: 0.9em;
 }
-
 
 /* ANIMAÇÕES @keyframes */
 
@@ -241,21 +280,21 @@ h2 {
 
 /* RESPONSIVIDADE */
 @media (max-width: 1350px) {
-    /* Reduz o padding para telas que não são gigantes */
     .container { padding: 0 20px; }
 }
 
 @media (max-width: 1100px) {
     h2 { font-size: 3em; }
+    .splash-logo { font-size: 3.5em; letter-spacing: 3px;}
 }
 
 @media (max-width: 768px) {
     body { 
-        padding: 10px; /* Menos padding no body */
+        padding: 10px; 
         background-size: 200% 200%;
     }
     
-    .container { padding: 0 10px; } /* Menos padding no container */
+    .container { padding: 0 10px; } 
 
     header { margin-bottom: 20px; padding-top: 10px; }
     .logo { font-size: 2em; }
@@ -282,4 +321,9 @@ h2 {
     }
     .miniatura { width: 70px; height: 70px; }
     .opcao-item { padding: 5px; }
+
+    .splash-logo {
+        font-size: 2.5em; 
+        letter-spacing: 2px;
+    }
 }
