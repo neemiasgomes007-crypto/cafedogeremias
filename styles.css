@@ -1,0 +1,285 @@
+/* Definições Globais e Variáveis */
+:root {
+    --cor-fundo-base: #f7f3ee; /* Bege muito claro */
+    --cor-texto-principal: #333;
+    --cor-destaque-cafe: #583a2c; /* Marrom padrão do Espresso */
+    --cor-botao: #583a2c; 
+    /* Sombra mais suave para um visual premium */
+    --sombra-elegante: 0 5px 15px rgba(0, 0, 0, 0.08); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Fundo Animado com Gradiente Suave */
+    background: linear-gradient(-45deg, #f7f3ee, #f0e6da, #f7f3ee, #f0e6da);
+    background-size: 400% 400%; 
+    animation: gradientShift 20s ease infinite; 
+    
+    color: var(--cor-texto-principal);
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 30px 0; /* Remove padding lateral do body, centraliza com o container */
+}
+
+/* NOVO: Estilo para o Container Centralizado */
+.container {
+    max-width: 1300px; 
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 50px; /* Adiciona padding interno */
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Fundo Destaque (Círculo de Cor JS) */
+.fundo-destaque {
+    background-color: var(--cor-destaque-cafe); 
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.03; 
+    transition: background-color 0.8s ease-in-out;
+}
+
+/* Header/Navegação */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    font-weight: 900; /* Mais impacto visual */
+    color: var(--cor-destaque-cafe); 
+    letter-spacing: 2px; /* Espaçamento sutil para elegância */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: color 0.8s ease-in-out;
+}
+
+.menu-navegacao a {
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu-navegacao a:hover {
+    color: var(--cor-destaque-cafe);
+}
+
+/* Conteúdo Principal */
+.caixa-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60vh;
+}
+
+.caixa-textos {
+    max-width: 500px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em; /* Ligeiramente maior */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px; /* Ajuste para títulos grandes */
+}
+
+.nome-cafe-destaque {
+    color: var(--cor-destaque-cafe);
+    transition: color 0.8s ease-in-out;
+}
+
+.descricao-cafe {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #555; /* Texto mais suave */
+    font-weight: 400;
+}
+
+.botao-comprar {
+    background-color: var(--cor-botao);
+    color: white;
+    border: none;
+    padding: 14px 40px; /* Mais preenchimento */
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 8px; /* Cantos mais arredondados */
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    box-shadow: var(--sombra-elegante); /* Sombra profissional */
+    text-transform: uppercase;
+}
+
+.botao-comprar:hover {
+    filter: brightness(1.1);
+    transform: translateY(-4px); /* Efeito 3D sutil */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.preco-cafe {
+    margin-top: 25px;
+    font-size: 1.2em;
+    color: var(--cor-texto-principal);
+}
+
+.valor-cafe {
+    font-weight: 700;
+    font-size: 1.6em; /* Preço em destaque */
+    color: var(--cor-destaque-cafe);
+    transition: color 0.8s ease-in-out;
+}
+
+/* Imagem Principal */
+.caixa-imagem {
+    max-width: 450px;
+    margin-top: -50px; 
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15)); /* Sombra na imagem */
+}
+
+.imagem-cafe {
+    width: 100%;
+    height: auto;
+    animation: balancoSuave 6s ease-in-out infinite;
+    transition: transform 0.8s ease-in-out; /* Transição na troca de imagem */
+}
+
+/* Menu de Opções (Miniaturas) - AGORA UM "CARTÃO" FLUTUANTE */
+.menu-opcoes {
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de vidro desfocado */
+    border-radius: 15px;
+    box-shadow: var(--sombra-elegante);
+    
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 40px;
+    margin: 40px auto 0;
+    width: fit-content; /* Se ajusta ao conteúdo */
+    max-width: 90%;
+    position: relative;
+    z-index: 20;
+}
+
+.opcao-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.opcao-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    transform: translateY(-8px);
+}
+
+.opcao-item.ativo {
+    background-color: rgba(0, 0, 0, 0.08); /* Mais escuro quando ativo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+}
+
+.miniatura {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.opcao-item p {
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+
+/* ANIMAÇÕES @keyframes */
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes balancoSuave {
+    0% { transform: rotateZ(-1deg) translateY(0); }
+    50% { transform: rotateZ(1deg) translateY(-5px); }
+    100% { transform: rotateZ(-1deg) translateY(0); }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animar-entrada { opacity: 0; }
+.animacao-texto { animation: slideInUp 1s ease-out forwards; }
+.animacao-imagem { animation: slideInUp 1s ease-out 0.5s forwards; }
+.animacao-menu { animation: slideInUp 1s ease-out 1s forwards; }
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 1350px) {
+    /* Reduz o padding para telas que não são gigantes */
+    .container { padding: 0 20px; }
+}
+
+@media (max-width: 1100px) {
+    h2 { font-size: 3em; }
+}
+
+@media (max-width: 768px) {
+    body { 
+        padding: 10px; /* Menos padding no body */
+        background-size: 200% 200%;
+    }
+    
+    .container { padding: 0 10px; } /* Menos padding no container */
+
+    header { margin-bottom: 20px; padding-top: 10px; }
+    .logo { font-size: 2em; }
+    .menu-navegacao a { margin-left: 10px; font-size: 0.9em; }
+
+    .caixa-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .caixa-imagem {
+        order: -1; 
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+
+    h2 { font-size: 2.2em; }
+    .descricao-cafe { max-width: 90%; margin-left: auto; margin-right: auto; }
+
+    .menu-opcoes {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px 15px;
+    }
+    .miniatura { width: 70px; height: 70px; }
+    .opcao-item { padding: 5px; }
+}

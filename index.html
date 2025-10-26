@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Coffee House</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="fundo-destaque"></div>
+
+    <div class="container">
+        <header class="animar-entrada animacao-texto">
+            <h1 class="logo">Aurora Coffee</h1>
+            <nav class="menu-navegacao">
+                <a href="#">Menu</a>
+                <a href="#">História</a>
+                <a href="#">Localização</a>
+            </nav>
+        </header>
+
+        <main class="caixa-conteudo">
+            
+            <div class="caixa-textos animar-entrada animacao-texto">
+                <h2>
+                    Desperte Seus Sentidos com
+                    <span class="nome-cafe-destaque">Espresso</span> 
+                    Artesanal
+                </h2>
+                <p class="descricao-cafe">
+                    Nosso grão 100% Arábica, torrado à perfeição para revelar notas 
+                    de chocolate amargo e caramelo. Uma experiência pura e intensa.
+                </p>
+                
+                <button class="botao-comprar">PEÇA AGORA</button>
+                
+                <div class="preco-cafe">
+                    A partir de 
+                    <span class="valor-cafe">R$ 12,00</span>
+                </div>
+            </div>
+
+            <div class="caixa-imagem animar-entrada animacao-imagem">
+                <img src="imagem/espresso.png" alt="Espresso Artesanal" class="imagem-cafe">
+            </div>
+
+        </main>
+    </div> <div class="menu-opcoes animar-entrada animacao-menu">
+        
+        <div class="opcao-item ativo" 
+             onclick="mudarCafe('imagem/espresso.png', 'Espresso', 'Nosso grão 100% Arábica, torrado à perfeição para revelar notas de chocolate amargo e caramelo. Uma experiência pura e intensa.', '#583a2c', 'R$ 12,00', this)">
+            <img src="imagem/thumb_espresso.png" alt="Espresso" class="miniatura">
+            <p>Espresso</p>
+        </div>
+        
+        <div class="opcao-item" 
+             onclick="mudarCafe('imagem/latte.png', 'Vanilla Latte', 'O equilíbrio perfeito entre a intensidade do café e a suavidade da baunilha, finalizado com uma camada cremosa de leite vaporizado.', '#a38b7d', 'R$ 18,00', this)">
+            <img src="imagem/thumb_latte.png" alt="Vanilla Latte" class="miniatura">
+            <p>Latte</p>
+        </div>
+        
+        <div class="opcao-item" 
+             onclick="mudarCafe('imagem/coldbrew.png', 'Cold Brew', 'Café extraído a frio por 18 horas. Sabor suave e naturalmente doce, ideal para os dias mais quentes e para quem busca refrescância.', '#2e435a', 'R$ 16,00', this)">
+            <img src="imagem/thumb_coldbrew.png" alt="Cold Brew" class="miniatura">
+            <p>Cold Brew</p>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
