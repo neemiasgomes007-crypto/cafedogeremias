@@ -327,3 +327,40 @@ h2 {
         letter-spacing: 2px;
     }
 }
+
+/* ------------------ EFEITOS ADICIONAIS / PARTICULAS ------------------ */
+.particles-canvas {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* atrás do conteúdo principal (.container has z-index:10) */
+    pointer-events: none; /* não bloqueia cliques */
+    opacity: 0.9;
+    mix-blend-mode: normal;
+}
+
+/* Pequenas melhorias visuais */
+.imagem-cafe:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.opcao-item .miniatura:hover {
+    transform: scale(1.04);
+    transition: transform 220ms ease;
+}
+
+.botao-comprar:focus {
+    outline: 3px solid rgba(88,58,44,0.18);
+    outline-offset: 3px;
+}
+
+/* Subtle glow for active price */
+.valor-cafe {
+    text-shadow: 0 6px 18px rgba(88,58,44,0.06);
+}
+
+/* limitador de performance: reduz partículas em telas muito pequenas */
+@media (max-width: 420px) {
+    .particles-canvas { opacity: 0.6; }
+}
